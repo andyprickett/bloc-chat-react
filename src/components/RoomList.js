@@ -8,11 +8,13 @@ class RoomList extends Component {
     };
 
     this.roomsRef = this.props.firebase.database().ref('rooms');
+
   }
 
-  componenetDidMount() {
+
+  componentDidMount() {
     this.roomRef.on('child_added', snapshot => {
-      console.log('hello');
+      console.log('snapshot');
     });
   }
 
