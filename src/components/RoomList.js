@@ -41,22 +41,40 @@ class RoomList extends Component {
 
   render() {
     return (
-      <div>
-        {
-          this.state.rooms.map(
-            (room, index) => <h1 key={index}>{room.name}</h1>
-          )
-        }
-        <form className="create-room" onSubmit={this.createRoom}>
-          <label>
-            <span>Create a New Room: </span>
-            <input type="text"
+      <div className="rooms-container">
+
+        <header className="rooms-header">
+          <h2>Chat Rooms</h2>
+        </header>
+
+        <form id="create-room-form" onSubmit={this.createRoom}>
+          <label id="create-room-label">
+            <span id="create-room-prompt">Create a New Room:</span>
+            <input id="create-room-field"
+                   type="text"
                    value={this.state.newRoomName}
                    onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Go!" />
+          <input id="create-room-button"
+                 type="submit"
+                 value="Go!"
+          />
         </form>
+
+        <section className="rooms">
+          {
+            this.state.rooms.map(
+              (room, index) => <h3 key={index}
+                                   className="room"
+                                   onClick={() => this.props.selectRoom(room.name)}
+                                   >
+                                   {room.name}
+                               </h3>
+            )
+          }
+        </section>
+
       </div>
     );
   }
