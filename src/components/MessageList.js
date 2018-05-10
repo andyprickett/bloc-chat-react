@@ -29,7 +29,9 @@ class MessageList extends Component {
         <section className="messages">
           {
             this.state.messages.map(
-              (message, index) => <h3 key={index} className="message">{message.name}</h3>
+              (message, index) => <h3 key={index}
+                                      className="message">{message.name}
+                                  </h3>
             )
           }
         </section>
