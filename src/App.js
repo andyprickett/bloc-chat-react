@@ -19,16 +19,21 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      activeRoom: 'Active Room'
+      activeRoom: undefined
     };
 
     this.selectRoom = this.selectRoom.bind(this);
   }
 
-  selectRoom(roomName) {
+  selectRoom(room) {
     this.setState(
-      { activeRoom: roomName }
+      { activeRoom: room }
     );
+    console.log(this.state.activeRoom)
+  }
+
+  dummy(){
+    console.log('weeeeee')
   }
 
   render() {
@@ -39,10 +44,7 @@ class App extends Component {
         </header>
         <main>
           <section className="room-list">
-            <RoomList firebase={firebase}
-                      activeRoom={this.state.activeRoom}
-                      selectRoom={this.selectRoom}
-            />
+            <RoomList firebase={firebase} selectRoom={this.selectRoom} dummy={this.dummy} />
           </section>
           <section className="message-list">
             <MessageList firebase={firebase}

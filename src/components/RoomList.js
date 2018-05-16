@@ -61,20 +61,12 @@ class RoomList extends Component {
                  value="Go!"
           />
         </form>
-
-        <section className="rooms">
-          {
-            this.state.rooms.map(
-              (room, index) => <h3 key={index}
-                                   className="room"
-                                   onClick={() => this.props.selectRoom(room.name)}
-                                   >
-                                   {room.name}
-                               </h3>
-            )
-          }
-        </section>
-
+        <div onClick={this.props.dummy}>click me</div>
+    /*      {
+            this.state.rooms.map(function(val, index){
+              return <li key={index} onClick={this.props.dummy} >{val.name}</li>
+            })
+          }*/
       </div>
     );
   }

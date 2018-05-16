@@ -106,4 +106,5 @@ main {
 
 .message {
   display: flex;
+  background: purple;
 }
