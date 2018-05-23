@@ -19,15 +19,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      activeRoom: 'Active Room'
+      activeRoom: ''
     };
 
     this.selectRoom = this.selectRoom.bind(this);
   }
 
-  selectRoom(roomName) {
+  selectRoom(room) {
     this.setState(
-      { activeRoom: roomName }
+      { activeRoom: room }
     );
   }
 
@@ -39,15 +39,10 @@ class App extends Component {
         </header>
         <main>
           <section className="room-list">
-            <RoomList firebase={firebase}
-                      activeRoom={this.state.activeRoom}
-                      selectRoom={this.selectRoom}
-            />
+            <RoomList firebase={firebase} selectRoom={this.selectRoom} />
           </section>
           <section className="message-list">
-            <MessageList firebase={firebase}
-                         activeRoom={this.state.activeRoom}
-            />
+            <MessageList firebase={firebase} activeRoom={this.state.activeRoom} />
           </section>
         </main>
       </div>

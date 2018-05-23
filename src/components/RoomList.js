@@ -17,7 +17,7 @@ class RoomList extends Component {
   componentDidMount() {
     this.roomsRef.on('child_added', snapshot => {
       this.setState(
-        { rooms: this.state.rooms.concat( snapshot.val() ) }
+        { rooms: this.state.rooms.concat(snapshot.val()) }
       );
     });
   }
@@ -40,6 +40,7 @@ class RoomList extends Component {
   }
 
   render() {
+
     return (
       <div className="rooms-container">
 
@@ -50,31 +51,18 @@ class RoomList extends Component {
         <form id="create-room-form" onSubmit={this.createRoom}>
           <label id="create-room-label">
             <span id="create-room-prompt">Create a New Room:</span>
-            <input id="create-room-field"
-                   type="text"
-                   value={this.state.newRoomName}
-                   onChange={this.handleChange}
-            />
+            <input id="create-room-field" type="text" value={this.state.newRoomName} onChange={this.handleChange} />
           </label>
-          <input id="create-room-button"
-                 type="submit"
-                 value="Go!"
-          />
+          <input id="create-room-button" type="submit" value="Go!" />
         </form>
 
         <section className="rooms">
           {
-            this.state.rooms.map(
-              (room, index) => <h3 key={index}
-                                   className="room"
-                                   onClick={() => this.props.selectRoom(room.name)}
-                                   >
-                                   {room.name}
-                               </h3>
-            )
+            this.state.rooms.map((room, index) => {
+              return <h3 className="room" key={index} onClick={() => this.props.selectRoom(room)}>{room.name}</h3>;
+            })
           }
         </section>
-
       </div>
     );
   }
