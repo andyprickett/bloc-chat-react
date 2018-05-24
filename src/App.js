@@ -19,7 +19,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      activeRoom: ''
+      activeRoom: null
     };
 
     this.selectRoom = this.selectRoom.bind(this);

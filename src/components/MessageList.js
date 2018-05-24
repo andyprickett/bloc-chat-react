@@ -13,26 +13,34 @@ class MessageList extends Component {
   componentDidMount() {
     this.messagesRef.on('child_added', snapshot => {
       this.setState(
-        { messages: this.state.messages.concat( snapshot.val() ) }
+        { messages: this.state.messages.concat( snapshot ) }
       );
     });
   }
 
   render() {
-    var messages = this.state.messages.filter(message => message.roomId === this.props.activeRoom.name);
+    const { activeRoom } = this.props;
+    var activeRoomName, messages;
+
+    if (activeRoom) {
+      activeRoomName = 'Messages: ' + activeRoom.val().name;
+      messages = this.state.messages.filter(message => message.val().roomId === activeRoom.val().name);
+    } else {
+      activeRoomName = 'Messages';
+    }
 
     return (
       <div className="messages-container">
 
         <header className="messages-header">
-          <h2>{this.props.activeRoom !== '' ? `Messages for ${this.props.activeRoom.name}` : 'Messages'}</h2>
+          <h2>{activeRoomName}</h2>
         </header>
 
         <section className="messages">
           <ul className="messages-list">
-            {
+            { activeRoom &&
               messages.map((message, index) => {
-                return <li key={index} className="message">{message.content}</li>;
+                return <li key={message.key} className="message">{message.val().content}</li>;
               })
             }
           </ul>
