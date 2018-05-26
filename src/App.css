@@ -5,20 +5,52 @@
 
 .App-header {
   background-color: #222;
-  height: 60px;
-  padding: 20px;
+  height: 100px;
   color: white;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
+
+.user {
+  flex: 1;
+}
+
+.title {
+  display: flex;
+  flex: 3;
+  justify-content: center;
+ }
 
 .App-title {
   font-size: 1.5em;
+  display: flex;
+  align-items: center;
 }
 
-.App-intro {
-  font-size: large;
+.signed-in-user, .signed-out-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100px;
 }
 
+.user-photo {
+  height: 50px;
+  width: 50px;
+}
+
+.user-display-name {
+  font-size: 0.6em;
+  width: 200px;
+  height:20px;
+  margin: 0px 7px 0px 7px;
+  text-align: center;
+}
+
+.sign-in-button {
+  width: 130px;
+}
 main {
   display: flex;
   min-height: 100vh;
@@ -67,7 +99,6 @@ ul {
 }
 
 #create-room-label {
-  display: flex;
   margin: 10px 0 5px 0;
 }
 
