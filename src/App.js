@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
+import MessageInput from './components/MessageInput';
 import User from './components/User';
 import * as firebase from 'firebase';
 
@@ -53,12 +54,36 @@ class App extends Component {
           </section>
         </header>
         <main>
-          <section className="room-list">
-            <RoomList firebase={firebase} selectRoom={this.selectRoom} />
-          </section>
-          <section className="message-list">
-            <MessageList firebase={firebase} activeRoom={this.state.activeRoom} />
-          </section>
+
+          <div className="room-column">
+
+            <div className="room-column-container">
+              <section className="room-list">
+                <RoomList firebase={firebase}
+                          selectRoom={this.selectRoom}
+                />
+              </section>
+            </div>
+
+          </div>
+
+          <div className="message-column">
+
+            <div className="message-column-container">
+              <section className="message-list">
+                <MessageList firebase={firebase}
+                             activeRoom={this.state.activeRoom}
+                />
+              </section>
+              <section className="message-input">
+                <MessageInput firebase={firebase}
+                              activeRoom={this.state.activeRoom}
+                              user={this.state.user}
+                />
+              </section>
+            </div>
+
+          </div>
         </main>
       </div>
     );

@@ -30,9 +30,9 @@ class MessageList extends Component {
     }
 
     return (
-      <div className="messages-container">
+      <div className="message-list-container">
 
-        <header className="messages-header">
+        <header className="message-list-header">
           <h2>{activeRoomName}</h2>
         </header>
 
@@ -45,7 +45,6 @@ class MessageList extends Component {
             }
           </ul>
         </section>
-
       </div>
     );
   }

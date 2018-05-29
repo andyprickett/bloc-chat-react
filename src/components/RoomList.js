@@ -42,9 +42,9 @@ class RoomList extends Component {
   render() {
 
     return (
-      <div className="rooms-container">
+      <div className="room-list-container">
 
-        <header className="rooms-header">
+        <header className="room-list-header">
           <h2>Chat Rooms</h2>
         </header>
 
@@ -63,6 +63,7 @@ class RoomList extends Component {
             })
           }
         </section>
+
       </div>
     );
   }
