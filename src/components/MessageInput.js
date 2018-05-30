@@ -4,23 +4,21 @@ class MessageInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newMessage: '',
-      disabled: true
+      newMessage: ''
     }
 
     this.messagesRef = this.props.firebase.database().ref('messages');
-    this.handleChange = this.handleChange.bind(this);
     this.placeHolder = this.placeHolder.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.createMessage = this.createMessage.bind(this);
   }
 
-  handleChange(event) {
-    let newMessageData = event.target.value;
-    this.setState(
-      {
-        newMessage: newMessageData,
-      }
-    );
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user && nextProps.activeRoom){
+      this.setState(
+        { newMessage: '' }
+      );
+    }
   }
 
   placeHolder(user, room) {
@@ -31,6 +29,15 @@ class MessageInput extends Component {
       ? 'Write a new message in this room...'
       : 'Select a room to write a message in...'
     )
+  }
+
+  handleChange(event) {
+    let newMessageData = event.target.value;
+    this.setState(
+      {
+        newMessage: newMessageData,
+      }
+    );
   }
 
   createMessage(event) {
@@ -51,8 +58,6 @@ class MessageInput extends Component {
       this.setState(
         { newMessage: '' }
       );
-    } else {
-
     }
   }
 
@@ -66,14 +71,15 @@ class MessageInput extends Component {
                  type="text"
                  required
                  placeholder={this.placeHolder(this.props.user, this.props.activeRoom)}
-                 value={this.state.newMessage}
+                 value={this.props.user ? this.state.newMessage : ''}
                  onChange={this.handleChange}
           />
-          <button id="create-message-button"
-                  type="button"
-                  disabled={this.state.disabled}>
-                  Send
-          </button>
+          {
+            (this.props.user && this.props.activeRoom) &&
+            <button id="create-message-button" type="button">
+              Send
+            </button>
+          }
         </form>
 
       </div>
