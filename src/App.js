@@ -61,6 +61,7 @@ class App extends Component {
               <section className="room-list">
                 <RoomList firebase={firebase}
                           selectRoom={this.selectRoom}
+                          activeRoom={this.state.activeRoom}
                 />
               </section>
             </div>
@@ -73,6 +74,7 @@ class App extends Component {
               <section className="message-list">
                 <MessageList firebase={firebase}
                              activeRoom={this.state.activeRoom}
+
                 />
               </section>
               <section className="message-input">
