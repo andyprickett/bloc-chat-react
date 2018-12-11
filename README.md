@@ -1,3 +1,38 @@
+# React Chat
+
+#### Simple chat single-page application.
+
+## Features
+* Create chat rooms.
+* See messages in each room.
+* Set username and create messages as user.
+
+## Technologies
+* React (Create React App).
+* Firebase storage and authentication.
+* Flexbox.
+
+## Comments and Complications
+This application is based on a project completed for the Bloc Web Developer Track program. A humble beginning of what could be a fully-featured app, it is operational on my local machine, and in a [live deployment on Heroku](https://andyprickett-react-chat.herokuapp.com/). It should be able to be cloned. Features yet to be added:
+* Delete rooms
+* Rename rooms
+* Delete messages
+* Edit messages
+* Admin users
+* Private rooms
+* Check online status of users
+* "User Currently Typing in current room" indicator
+
+Ugh, that's alot. We'll get there.
+
+## Usage
+I am using this project for learning and experimentation with technologies.
+* After cloning, run `npm install`.
+* Set up your own [Firebase database and use those settings](https://firebase.google.com/docs/database/).
+* Start the app with `npm start`.
+
+--------------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
