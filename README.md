@@ -1,6 +1,6 @@
 # React Chat
 
-#### Simple chat single-page application.
+#### Simple single-page chat application with Saas backend.
 
 ## Features
 * Create chat rooms.
